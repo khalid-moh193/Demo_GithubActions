@@ -25,7 +25,7 @@ jobs:
 
       # Runs a single command using the runners shell
       - name: Run Postman collection
-        run: newman run GitHubDemo.postman_collection.json --disable-unicode -r htmlextra --reporter-htmlextra-export htmlreport.html
+        run: newman run GitHubDemo.postman_collection.json --disable-unicode -r htmlextra --reporter-htmlextra-export "newman/extraHTMLReport.html"
 
       - uses: actions/upload-artifact@v3
         with:
