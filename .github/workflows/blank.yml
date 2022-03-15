@@ -18,7 +18,16 @@ jobs:
     steps:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
       - uses: actions/checkout@v2
+      
+      # Runs a single command using the runners shell
+      - name: install newman html extra report
+        run: npm install -g newman-reporter-htmlextra
 
       # Runs a single command using the runners shell
-      - name: Run a one-line script
-        run: newman run GitHubDemo.postman_collection.json
+      - name: Run Postman collection
+        run: newman run GitHubDemo.postman_collection.json --disable-unicode -r htmlextra --reporter-htmlextra-export htmlreport.html
+
+      - uses: actions/upload-artifact@v3
+        with:
+            name: Newman-Reports
+            path: ./newman
