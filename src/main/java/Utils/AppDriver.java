@@ -7,13 +7,14 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.firefox.FirefoxOptions;
+import org.openqa.selenium.remote.RemoteWebDriver;
 import org.openqa.selenium.safari.SafariDriver;
 
 import java.util.concurrent.TimeUnit;
 
 public class AppDriver {
 
-    WebDriver driver;
+    RemoteWebDriver driver;
 
     public WebDriver SeleniumDriverSetup(String browser) throws Exception {
 //         Check if parameter passed from web.xml is 'firefox'
@@ -35,7 +36,7 @@ public class AppDriver {
             ChromeOptions options = new ChromeOptions();
             options.addArguments("--no-sandbox");
             options.addArguments("--disable-dev-shm-usage");
-//            options.addArguments("--headless"); //You can un-comment it if you need to run in the headless mode
+            options.addArguments("--headless"); //You can un-comment it if you need to run in the headless mode
             driver = new ChromeDriver(options);
             driver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
             driver.manage().window().maximize();
