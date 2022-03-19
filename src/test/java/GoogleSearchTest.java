@@ -10,6 +10,7 @@ public class GoogleSearchTest extends BaseTestClass {
 
     @Test(description = "search by any keyword, then check that it's existed in the search result ")
     public void verifySearchFunctionality() {
+        System.out.println("################# test is started");
         home = new HomePage(driver);
         home.navigateToGoogle()
                 .sendTextToSearchField("Selenium WebDriver")

@@ -14,8 +14,10 @@ public abstract class BaseTestClass {
     @BeforeClass
     @Parameters("browser")
     void beforeClass(@Optional("Chrome") String browser) throws Exception {
+        System.out.println("################# before initiate driver");
         AppDriver testInit = new AppDriver();
         driver = testInit.SeleniumDriverSetup(browser);
+        System.out.println("################# driver is initiated");
     }
 
     @BeforeMethod
