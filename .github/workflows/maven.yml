@@ -28,7 +28,6 @@ jobs:
       if: success() || failure()           # run this step even if previous step failed
       with:
         name: test result
-        files: "target/surefire-reports/*.xml"
         path: |
           target/surefire-reports/
           allure-results/*
