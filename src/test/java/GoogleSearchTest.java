@@ -20,11 +20,11 @@ public class GoogleSearchTest extends BaseTestClass {
 
         searchResult = new SearchResultPage(driver);
         doAssertEqual(searchResult.getCurrentUrl().contains("Selenium"), true, "URL doesn't contain the search keyword");
-        try {
-            doAssertEqual(searchResult.getResultText().contains("Selenium"), true, "Test result Text is not as expected");
-        }catch (NoSuchElementException noSuchElementException) {
+//        try {
+//            doAssertEqual(searchResult.getResultText().contains("Selenium"), true, "Test result Text is not as expected");
+//        }catch (NoSuchElementException noSuchElementException) {
             doAssertEqual(driver.findElement(By.xpath("//h3[contains(text(),'Selenium Webdrive')]")).isDisplayed(), true, "Test result Text is not as expected");
-        }
+//        }
         softAssert.assertAll();
     }
 
