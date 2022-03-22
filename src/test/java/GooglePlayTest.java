@@ -17,6 +17,8 @@ public class GooglePlayTest extends BaseTestClass {
         googlePlay.selectCategory("EDUCATION");
         doAssertEqual(googlePlay.getCurrentUrl(), "https://play.google.com/store/apps/category/EDUCATION", "wrong URL");
 
+        /* fail on purpose to check the test report */
+        doAssertEqual(googlePlay.getCurrentUrl(), "https://play.google.com/store/apps/category/education", "wrong URL");
         softAssert.assertAll();
     }
 
