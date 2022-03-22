@@ -24,7 +24,6 @@ jobs:
     - name: Build with Maven
       run: mvn test --file pom.xml         # run maven tests
 
-    - name: Download a Build Artifact
     - uses: actions/upload-artifact@v3     # upload test results
       if: success() || failure()           # run this step even if previous step failed
       with:
