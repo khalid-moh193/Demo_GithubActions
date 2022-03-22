@@ -27,8 +27,7 @@ jobs:
       if: success() || failure()
       with:
         name: test result
-        files: target/surefire-reports/testng-results.xml
+        files: "target/surefire-reports/*.xml"
         path: |
           target/surefire-reports/
-          target/surefire-reports/testng-results.xml
           allure-results/*
