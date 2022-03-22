@@ -45,6 +45,10 @@ public class Page {
         return wait.until(ExpectedConditions.elementToBeClickable(element)).getText();
     }
 
+    public boolean getElementTextContains(String text) {
+        return wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//h3[contains(text(),"+"'" + text + "'" +")]"))).isDisplayed();
+    }
+
     public boolean checkElementIsDisplayed(By element) {
         try {
             visibilityWait(element);
