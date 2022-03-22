@@ -24,6 +24,11 @@ jobs:
       run: mvn test --file pom.xml
 
     - uses: actions/upload-artifact@v3
+      if: success() || failure()
       with:
         name: test result
-        path: target/surefire-reports/
+        files: target/surefire-reports/testng-results.xml
+        path: |
+          target/surefire-reports/
+          target/surefire-reports/testng-results.xml
+          allure-results/*
